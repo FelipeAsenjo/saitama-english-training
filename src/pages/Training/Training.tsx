@@ -84,7 +84,6 @@ export default function Training() {
 
   const getWordsNotStudied = () => {
     const wordsNotStudied = groupWords?.filter(word => !studiedHashWords.includes(word.id))
-    // console.log('wordsNotStudied', wordsNotStudied)
     setGroupWordsStudied(wordsNotStudied.length)
     return wordsNotStudied
   }
@@ -98,7 +97,6 @@ export default function Training() {
       const studiedWords = [...studiedHashWords, word.id]
       const wordsNotStudied = getWordsNotStudied()
       if (!wordsNotStudied?.length) {
-        // console.log('no words left')
         handleNotWordsStudied(studiedWords)
       } else {
         const nextWord = studyRandomMode ? getItemRandArray(wordsNotStudied) : getWordNext(wordsNotStudied, wordId)
