@@ -71,7 +71,7 @@ export default function Training() {
     if (orderTypeEstablished !== 0) {
       dispatch(setStudiedhashWords(wordStudiedOutGroup))
       setShowResult(false)
-      navigate(`/training/group/${groupId}/word/${groupWords[0]._i}`, { replace: true })
+      navigate('/training', { replace: true })
     } else {
       setRunAutomaticTime(false)
       showMsgSuccess('info.allWordsStudied').then(() => {
@@ -84,6 +84,7 @@ export default function Training() {
 
   const getWordsNotStudied = () => {
     const wordsNotStudied = groupWords?.filter(word => !studiedHashWords.includes(word.id))
+    // console.log('wordsNotStudied', wordsNotStudied)
     setGroupWordsStudied(wordsNotStudied.length)
     return wordsNotStudied
   }
@@ -97,6 +98,7 @@ export default function Training() {
       const studiedWords = [...studiedHashWords, word.id]
       const wordsNotStudied = getWordsNotStudied()
       if (!wordsNotStudied?.length) {
+        // console.log('no words left')
         handleNotWordsStudied(studiedWords)
       } else {
         const nextWord = studyRandomMode ? getItemRandArray(wordsNotStudied) : getWordNext(wordsNotStudied, wordId)
