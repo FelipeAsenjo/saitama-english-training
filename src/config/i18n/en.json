@@ -38,7 +38,8 @@
     "velocityAutomatic": "Speed of passage of words",
     "noRecords": "No records",
     "aboutProject": "About",
-    "aboutDetails": "The objective of this application is to learn 100% the most used phrases of the English language. <br /> <br /> Do you want to contact the author?"
+    "aboutDetails": "The objective of this application is to learn 100% the most used phrases of the English language. <br /> <br /> Do you want to contact the author?",
+    "studiedWords": "Studied number:"
   },
   "button": {
     "login": "Login",
