@@ -13,7 +13,7 @@ import { useApp } from '../../providers/AppProvider'
 export default function Index() {
   const { dispatch, handleGroupWords } = useApp()
   const [isUpdateWordsLoading, setisUpdateWordsLoading] = useState(false)
-  const { words, configTrain, orderTypeEstablished, canSyncWords } = useAppSelector(selectConfigApp)
+  const { words, configTrain, orderTypeEstablished, canSyncWords, studiedHashWords } = useAppSelector(selectConfigApp)
 
   const handleUpdateWords = async () => {
     try {
@@ -91,7 +91,12 @@ export default function Index() {
             <Link className="w-250px mt-5 mb-4 btn btn-primary btn-lg" to="training" color="primary">
               {trans('label.startTraining')}
             </Link>
-            {isUpdateWordsLoading ? <Loading size="22" /> : `${trans('label.totalWords')} ${words.length}`}
+            <div>
+              {isUpdateWordsLoading ? <Loading size="22" /> : `${trans('label.totalWords')} ${words.length}`}
+            </div>
+            <div>
+              {`${trans('label.studiedWords')} ${studiedHashWords.length}`}
+            </div>
           </div>
         </div>
       </div>
